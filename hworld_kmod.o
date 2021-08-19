@@ -1,0 +1,35 @@
+/*
+"Hello, World" - Kernel Module 1
+- with help from:
+  Linux Device Drivers, 3rd Edition
+  Chapter 2: Building and Running Modules
+
+Basic, but complete, kernel module with
+definitions for loading and unloading.
+For full compatibility, the book is
+using kernel 2.6.x.
+Planning to use a blank SD card or
+VM to test out some modules, but
+have to look into it more; not sure
+if i should get an old, 2.6.x build
+or current 5.10.x?
+
+brianc2788@gmail.com
+*/
+#include <linux/init.h>
+#include <linux/module.h>
+MODULE_LICENSE("Dual BSD/GPL");
+
+static int hello_init(void){
+	// Like printf(), but kernel mods have no access to the C library,
+	// so we use printk(); specifically for the kernel.
+	printk(KERN_ALERT "Module loaded successfully.\n \
+		               Hello, world of kernel development!\n");
+}
+
+static void hello_exit(void){
+	printk(KERN_ALERT "Goodbye, cruel world!\n");
+}
+
+module_init(hello_init);
+module_exit(hello_exit);
