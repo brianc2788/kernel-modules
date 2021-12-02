@@ -1,0 +1,11 @@
+/*************************************************
+:: Hello, FreeBSD Kernel!
+--------------------------------------------------
+:: created by brianc2788@gmail.com
+:: while following "Designing BSD Rootkits"
+:: by J. Kong.
+*************************************************/
+
+// TODO:
+// Create loadable kernel module (LKM)
+// for the FreeBSD kernel.
